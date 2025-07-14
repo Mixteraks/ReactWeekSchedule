@@ -1,0 +1,74 @@
+.scheduleGrid {
+  display: grid;
+  grid-template-columns: 40px repeat(7, calc( 10% - ( 5px / 7)));
+  grid-template-rows: 18px repeat(24, 2px);
+  gap: 2px;
+  align-items: center;
+  justify-items: center;
+  user-select: none;
+}
+
+.header {
+  font-weight: bold;
+  text-align: center;
+  background: none;
+  color: #111;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.hour {
+  font-size: 75%;
+  color: #222;
+  text-align: right;
+  width: 100%;
+  line-height: 10px;
+  background: none;
+  padding-right: 5px;
+}
+
+
+.cell {
+  width: 90%;
+  height: 5px;
+  background-color: #f1f1f1;
+  box-sizing: border-box;
+  transition: background 0.2s;
+  position: relative;
+}
+
+.active {
+  background-color: #fd7e14;
+}
+
+@media (min-width: 600px) {
+  .cell:hover {
+  background-color: #ced3ce;
+}
+.active:hover {
+  background-color: #e8590c;
+}
+}
+
+.tooltip{
+  position: absolute;
+  left: 50%;
+  top: -30px;
+  transform: translateX(-50%);
+  background: #222;
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  white-space: nowrap;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.95;
+  box-sizing: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 600px) {
+  .tooltip{
+    display: none;
+  }
+}
