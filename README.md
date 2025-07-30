@@ -1,4 +1,6 @@
-You can now add interactive week schedule in your project. 
+You can now add interactive week schedule in your project.
+
+<sup><sub>*Colors by using mantine*</sub></sup>
 
 By `data` you can set what hour is selected by the week. Using `tdata` you can set selected area. When your `data` and `tdata` are overlapping selected is other color. Hourly schedule by sides can by hiden or changing how many hours display.
 
