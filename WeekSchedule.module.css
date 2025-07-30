@@ -1,54 +1,90 @@
+.weekSchedule {
+  display: flex;
+  gap: 10px;
+
+  --height: 12px;
+  --rounded: 5px;
+}
 .scheduleGrid {
   display: grid;
-  grid-template-columns: 40px repeat(7, calc( 10% - ( 5px / 7)));
-  grid-template-rows: 18px repeat(24, 2px);
+  grid-template-columns: repeat(7, calc((99% - 10px) / 7));
+  grid-template-rows: 20px repeat(24, var(--height));
   gap: 2px;
   align-items: center;
   justify-items: center;
   user-select: none;
+  flex-grow: 1;
 }
 
 .header {
   font-weight: bold;
   text-align: center;
   background: none;
-  color: #111;
   font-size: 12px;
   line-height: 16px;
+  margin-bottom: 15px;
+}
+
+.hourlyDisplay{
+  text-align: center;
+  margin-top: 22px;
+  width: 40px;
+  height: calc(--height * 24 + (2px * 2) + 18px);
+  display: grid;
+  grid-template-rows: repeat(24, var(--height));
+  gap: 2px;
 }
 
 .hour {
-  font-size: 75%;
-  color: #222;
-  text-align: right;
+  font-weight: normal;
+  font-size: 10px;
   width: 100%;
+  height: calc(var(--height) + 1px);
   line-height: 10px;
   background: none;
-  padding-right: 5px;
 }
 
+:global(.cell--hour-0) {
+  border-radius: var(--rounded) var(--rounded) 0 0;
+}
+:global(.cell--hour-23) {
+  border-radius: 0 0 var(--rounded) var(--rounded);
+}
 
 .cell {
-  width: 90%;
-  height: 5px;
-  background-color: #f1f1f1;
+  width: 95%;
+  height: calc(var(--height) + 1px);
+  background-color: var(--mantine-color-orange-filled);
   box-sizing: border-box;
   transition: background 0.2s;
   position: relative;
 }
 
 .active {
-  background-color: #fd7e14;
+  background-color: #c0c0c03f;
 }
 
-@media (min-width: 600px) {
-  .cell:hover {
-  background-color: #ced3ce;
+.selected{
+  background-color: var(--mantine-color-teal-filled);
+}
+
+.selected.active{
+  background-color: var(--mantine-color-red-filled);
+}
+
+.cell:hover {
+  background-color: var(--mantine-color-orange-filled-hover);
 }
 .active:hover {
-  background-color: #e8590c;
+  background-color: #c0c0c06f;
 }
+.selected:hover{
+  background-color: var(--mantine-color-teal-filled-hover);
 }
+.selected.active:hover{
+  background-color: var(--mantine-color-red-filled-hover);
+}
+
 
 .tooltip{
   position: absolute;
@@ -71,4 +107,9 @@
   .tooltip{
     display: none;
   }
+}
+
+.moreInfo{
+  margin-top: 15px;
+  text-align: center;
 }
